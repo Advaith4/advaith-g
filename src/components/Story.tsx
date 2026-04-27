@@ -98,13 +98,13 @@ export const Story = () => {
                 </div>
 
                 <div className={`md:col-span-1 ${i % 2 === 0 ? "" : "md:order-2"}`}>
-                  <div className={`rounded-2xl border border-border bg-card/50 p-4 sm:p-6 backdrop-blur transition-all hover:border-primary/50 hover:shadow-glow ${i % 2 !== 0 ? "md:ml-12" : "md:mr-12"}`}>
-                    <div className="mb-3 flex items-center gap-3 md:justify-end">
-                      <item.Icon className="h-5 w-5 text-primary" />
+                  <div className={`rounded-2xl border border-border bg-card/50 p-5 sm:p-6 backdrop-blur transition-all hover:border-primary/50 hover:shadow-glow ${i % 2 !== 0 ? "md:ml-12" : "md:mr-12"}`}>
+                    <div className="mb-4 flex items-center gap-3 md:justify-end">
+                      <item.Icon className="h-6 w-6 text-primary" />
                       <span className="font-mono text-xs uppercase tracking-wider text-warm">{item.type}</span>
                     </div>
-                    <h3 className="font-display text-base sm:text-lg md:text-xl font-bold leading-tight">{item.title}</h3>
-                    <p className="mt-2 text-xs sm:text-sm md:text-sm text-muted-foreground">{item.sub}</p>
+                    <h3 className="font-display text-lg sm:text-xl md:text-2xl font-bold leading-tight">{item.title}</h3>
+                    <p className="mt-3 text-sm sm:text-base md:text-base text-muted-foreground">{item.sub}</p>
                   </div>
                 </div>
 
@@ -135,11 +135,11 @@ export const Story = () => {
               key={i}
               whileHover={{ y: -6 }}
               transition={{ duration: 0.3 }}
-              className="rounded-2xl border border-border bg-gradient-card p-4 sm:p-6"
+              className="rounded-2xl border border-border bg-gradient-card p-5 sm:p-6"
             >
               <div className="font-mono text-xs uppercase tracking-wider text-warm">{r.org}</div>
-              <div className="mt-2 font-display text-xl sm:text-2xl font-bold">{r.role}</div>
-              <div className="mt-2 text-xs sm:text-sm text-muted-foreground">{r.note}</div>
+              <div className="mt-3 font-display text-2xl sm:text-3xl font-bold">{r.role}</div>
+              <div className="mt-3 text-sm sm:text-base text-muted-foreground">{r.note}</div>
             </motion.div>
           ))}
         </motion.div>
