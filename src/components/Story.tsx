@@ -69,7 +69,7 @@ export const Story = () => {
           <div className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-primary">
             — the story so far —
           </div>
-          <h2 className="font-display text-5xl font-bold tracking-tighter md:text-7xl">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter">
             Curiosity, <span className="text-gradient">compounded</span>.
           </h2>
         </motion.div>
@@ -98,13 +98,13 @@ export const Story = () => {
                 </div>
 
                 <div className={`md:col-span-1 ${i % 2 === 0 ? "" : "md:order-2"}`}>
-                  <div className={`rounded-2xl border border-border bg-card/50 p-6 backdrop-blur transition-all hover:border-primary/50 hover:shadow-glow ${i % 2 !== 0 ? "md:ml-12" : "md:mr-12"}`}>
+                  <div className={`rounded-2xl border border-border bg-card/50 p-4 sm:p-6 backdrop-blur transition-all hover:border-primary/50 hover:shadow-glow ${i % 2 !== 0 ? "md:ml-12" : "md:mr-12"}`}>
                     <div className="mb-3 flex items-center gap-3 md:justify-end">
                       <item.Icon className="h-5 w-5 text-primary" />
                       <span className="font-mono text-xs uppercase tracking-wider text-warm">{item.type}</span>
                     </div>
-                    <h3 className="font-display text-xl font-bold leading-tight">{item.title}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground">{item.sub}</p>
+                    <h3 className="font-display text-base sm:text-lg md:text-xl font-bold leading-tight">{item.title}</h3>
+                    <p className="mt-2 text-xs sm:text-sm md:text-sm text-muted-foreground">{item.sub}</p>
                   </div>
                 </div>
 
@@ -124,7 +124,7 @@ export const Story = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mt-24 grid gap-6 md:grid-cols-3"
+          className="mt-24 grid gap-4 sm:gap-6 md:grid-cols-3"
         >
           {[
             { role: "Vice President", org: "RAISE Club", note: "Organised the Innovation Premier League hackathon (100+ teams) and an Intra-College Project Expo." },
@@ -135,11 +135,11 @@ export const Story = () => {
               key={i}
               whileHover={{ y: -6 }}
               transition={{ duration: 0.3 }}
-              className="rounded-2xl border border-border bg-gradient-card p-6"
+              className="rounded-2xl border border-border bg-gradient-card p-4 sm:p-6"
             >
               <div className="font-mono text-xs uppercase tracking-wider text-warm">{r.org}</div>
-              <div className="mt-2 font-display text-2xl font-bold">{r.role}</div>
-              <div className="mt-2 text-sm text-muted-foreground">{r.note}</div>
+              <div className="mt-2 font-display text-xl sm:text-2xl font-bold">{r.role}</div>
+              <div className="mt-2 text-xs sm:text-sm text-muted-foreground">{r.note}</div>
             </motion.div>
           ))}
         </motion.div>
