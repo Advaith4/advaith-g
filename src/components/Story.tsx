@@ -86,7 +86,7 @@ export const Story = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.7, delay: i * 0.05 }}
-                className={`relative grid grid-cols-[64px_1fr] items-start gap-6 md:grid-cols-2 md:gap-12 ${
+                className={`relative pl-20 md:grid md:grid-cols-2 md:gap-12 md:pl-0 ${
                   i % 2 === 0 ? "md:text-right" : "md:flex-row-reverse"
                 }`}
               >
@@ -98,13 +98,13 @@ export const Story = () => {
                 </div>
 
                 <div className={`md:col-span-1 ${i % 2 === 0 ? "" : "md:order-2"}`}>
-                  <div className={`rounded-2xl border border-border bg-card/50 p-5 sm:p-6 backdrop-blur transition-all hover:border-primary/50 hover:shadow-glow ${i % 2 !== 0 ? "md:ml-12" : "md:mr-12"}`}>
+                  <div className={`rounded-2xl border border-border bg-card/50 p-6 sm:p-8 backdrop-blur transition-all hover:border-primary/50 hover:shadow-glow ${i % 2 !== 0 ? "md:ml-12" : "md:mr-12"}`}>
                     <div className="mb-4 flex items-center gap-3 md:justify-end">
                       <item.Icon className="h-6 w-6 text-primary" />
                       <span className="font-mono text-xs uppercase tracking-wider text-warm">{item.type}</span>
                     </div>
-                    <h3 className="font-display text-lg sm:text-xl md:text-2xl font-bold leading-tight">{item.title}</h3>
-                    <p className="mt-3 text-sm sm:text-base md:text-base text-muted-foreground">{item.sub}</p>
+                    <h3 className="font-display text-xl sm:text-2xl md:text-2xl font-bold leading-snug">{item.title}</h3>
+                    <p className="mt-3 text-base sm:text-lg md:text-base text-muted-foreground leading-relaxed">{item.sub}</p>
                   </div>
                 </div>
 
