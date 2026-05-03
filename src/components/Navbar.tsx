@@ -60,14 +60,25 @@ export const Navbar = () => {
           {/* Logo */}
           <a
             href="#top"
-            className="group relative z-10 flex items-center gap-2 rounded-full px-3 py-1.5"
+            aria-label="Go to top"
+            className="group relative z-10 flex items-center gap-2 rounded-full px-2 py-1.5 pr-3 transition-colors hover:bg-primary/5"
           >
-            <span className="relative grid h-8 w-8 place-items-center rounded-full bg-gradient-cyan font-display text-sm font-bold text-background shadow-glow">
-              A
-              <span className="absolute inset-0 animate-pulse-glow rounded-full" />
+            <span className="relative grid h-9 w-9 place-items-center rounded-2xl shadow-[0_0_30px_hsl(var(--primary)/0.35)]">
+              <img
+                src="/advaith-logo.svg"
+                alt=""
+                aria-hidden="true"
+                className="h-full w-full rounded-2xl"
+              />
+              <span className="absolute -inset-1 rounded-2xl border border-primary/20 opacity-0 transition-opacity group-hover:opacity-100" />
             </span>
-            <span className="hidden font-display text-sm font-semibold tracking-tight sm:inline">
-              advaith<span className="text-primary">.</span>
+            <span className="hidden leading-none sm:block">
+              <span className="block font-display text-sm font-semibold tracking-tight">
+                Advaith G
+              </span>
+              <span className="block font-mono text-[9px] uppercase tracking-[0.18em] text-primary">
+                SDE + AI
+              </span>
             </span>
           </a>
 

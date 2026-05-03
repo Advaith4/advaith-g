@@ -10,8 +10,10 @@ export const CursorGlow = () => {
       setVisible(true);
     };
     const leave = () => setVisible(false);
+
     window.addEventListener("mousemove", move);
     window.addEventListener("mouseleave", leave);
+
     return () => {
       window.removeEventListener("mousemove", move);
       window.removeEventListener("mouseleave", leave);

@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 
 const skills = [
-  "Python", "Java", "CrewAI", "LangGraph", "PyTorch", "FastAPI", "Flask",
-  "Hugging Face", "Unsloth", "LLM Fine-Tuning", "Multi-Agent Systems",
-  "Generative AI", "Deep Learning", "Prompt Engineering", "Docker",
-  "Redis", "Git", "MISTRAL-7B", "Groq", "Explainable AI", "DSA",
+  "Python", "Java", "React", "Node.js", "Express", "MongoDB",
+  "Tailwind CSS", "CrewAI", "LangGraph", "PyTorch", "FastAPI", "Flask", "Hugging Face",
+  "Unsloth", "LLM Fine-Tuning", "Multi-Agent Systems", "Generative AI",
+  "Deep Learning", "Prompt Engineering", "Docker", "Redis", "Git",
+  "MISTRAL-7B", "Groq", "Explainable AI", "DSA",
 ];
 
 export const SkillsMarquee = () => {
@@ -16,7 +17,7 @@ export const SkillsMarquee = () => {
         viewport={{ once: true }}
         className="mb-6 text-center font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground"
       >
-        — the toolkit —
+        the toolkit
       </motion.div>
       <div className="relative flex overflow-hidden">
         <div className="flex shrink-0 animate-[scroll-x_40s_linear_infinite] gap-6 pr-6">

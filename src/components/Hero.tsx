@@ -1,28 +1,52 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail } from "lucide-react";
+import type { CSSProperties } from "react";
+import {
+  Bot,
+  BrainCircuit,
+  Code2,
+  Cpu,
+  Database,
+  Github,
+  Layers3,
+  Linkedin,
+  Mail,
+  Network,
+  type LucideIcon,
+} from "lucide-react";
 import portrait from "@/assets/advaith-portrait.jpg";
 
-// Two orbital rings of skills around the portrait
-const innerSkills = [
-  "CrewAI", "LangGraph", "PyTorch", "FastAPI", "Hugging Face", "Python",
+type OrbitSkill = {
+  label: string;
+  Icon: LucideIcon;
+  accent: "primary" | "warm";
+};
+
+const orbitSkills: OrbitSkill[] = [
+  { label: "Java", Icon: Code2, accent: "primary" },
+  { label: "React", Icon: Layers3, accent: "primary" },
+  { label: "Node.js", Icon: Cpu, accent: "primary" },
+  { label: "MongoDB", Icon: Database, accent: "primary" },
+  { label: "Python", Icon: Code2, accent: "warm" },
+  { label: "PyTorch", Icon: BrainCircuit, accent: "warm" },
+  { label: "FastAPI", Icon: Network, accent: "warm" },
+  { label: "CrewAI", Icon: Bot, accent: "warm" },
 ];
-const outerSkills = [
-  "LLM Fine-Tuning", "Multi-Agent", "MISTRAL-7B", "Generative AI",
-  "Deep Learning", "Groq", "Docker", "Explainable AI",
-];
+
+const orbitStyle = {
+  "--profile-size": "clamp(120px, 18vw, 190px)",
+  "--badge-size": "clamp(40px, 6vw, 90px)",
+  "--badge-height": "clamp(40px, 4vw, 46px)",
+} as CSSProperties;
 
 export const Hero = () => {
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
-      {/* Backgrounds */}
       <div className="absolute inset-0 grid-bg" />
       <div className="absolute inset-0 aurora-bg" />
 
       <span id="top" className="absolute top-0" />
 
-      {/* Main */}
       <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 pb-20 pt-10 md:px-16 lg:grid-cols-[1.2fr_1fr] lg:pt-20">
-        {/* Left text */}
         <div className="space-y-8">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -34,7 +58,7 @@ export const Hero = () => {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
             </span>
-            <span className="text-muted-foreground">available for opportunities · 2026</span>
+            <span className="text-muted-foreground">available for opportunities - 2026</span>
           </motion.div>
 
           <motion.h1
@@ -56,10 +80,10 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl"
           >
-            Computer Science engineer specializing in{" "}
-            <span className="text-foreground">multi-agent systems</span>,{" "}
-            <span className="text-foreground">fine-tuned LLMs</span>, and full-stack AI products
-            that solve real human problems.
+            Computer Science engineer focused on{" "}
+            <span className="text-foreground">software development</span>,{" "}
+            <span className="text-foreground">AI engineering</span>, and full-stack products
+            that turn practical ideas into working systems.
           </motion.p>
 
           <motion.div
@@ -72,7 +96,7 @@ export const Hero = () => {
               href="#work"
               className="group relative overflow-hidden rounded-full bg-primary px-8 py-4 font-mono text-sm font-semibold text-primary-foreground shadow-glow transition-all hover:shadow-[0_0_60px_hsl(186_100%_56%/0.8)]"
             >
-              <span className="relative z-10">view my work →</span>
+              <span className="relative z-10">view my work -&gt;</span>
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-primary via-warm to-primary transition-transform duration-700 group-hover:translate-x-0" />
             </a>
             <div className="flex gap-3">
@@ -101,129 +125,165 @@ export const Hero = () => {
             transition={{ duration: 1, delay: 1 }}
             className="flex flex-wrap gap-x-8 gap-y-3 pt-4 font-mono text-xs text-muted-foreground"
           >
-            <div><span className="text-primary">01</span> · 8.49 CGPA</div>
-            <div><span className="text-primary">02</span> · 3× Hackathon Winner</div>
-            <div><span className="text-primary">03</span> · Paper Presentation Winner</div>
-            <div><span className="text-primary">04</span> · Patent Filed</div>
+            <div><span className="text-primary">01</span> - 8.49 CGPA</div>
+            <div><span className="text-primary">02</span> - 3x Hackathon Winner</div>
+            <div><span className="text-primary">03</span> - Paper Presentation Winner</div>
+            <div><span className="text-primary">04</span> - Patent Filed</div>
           </motion.div>
         </div>
 
-        {/* Right: orbital skill visualization */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.5 }}
-          className="relative mx-auto aspect-square w-[340px] max-w-full sm:w-[420px] md:w-[480px] lg:w-[520px]"
-          style={{ perspective: 1200 }}
+          initial={{ opacity: 0, scale: 0.92, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+          className="relative mx-auto flex w-full max-w-[600px] flex-col items-center gap-4 overflow-visible"
         >
-          {/* Soft halo glow */}
-          <motion.div
-            animate={{ scale: [1, 1.08, 1], opacity: [0.35, 0.6, 0.35] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute inset-10 rounded-full bg-gradient-cyan blur-3xl"
-          />
+          <div className="rounded-full border border-primary/25 bg-background/60 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.24em] text-primary shadow-2xl backdrop-blur-xl">
+            sde + ai engineer
+          </div>
 
-          {/* Rotating orbit rings */}
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-0 rounded-full border border-dashed border-primary/25"
-          />
-          <motion.div
-            animate={{ rotate: -360 }}
-            transition={{ duration: 70, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-12 rounded-full border border-dashed border-warm/25"
-          />
-          <div className="absolute inset-24 rounded-full border border-primary/10" />
-
-          {/* OUTER orbit — skills running around */}
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-0"
+          <div
+            className="relative hidden aspect-square w-[min(76vw,460px)] max-w-full overflow-visible sm:block"
+            style={orbitStyle}
           >
-            {outerSkills.map((skill, i) => {
-              const angle = (360 / outerSkills.length) * i;
-              return (
-                <div
-                  key={skill}
-                  className="absolute left-1/2 top-1/2"
-                  style={{
-                    transform: `rotate(${angle}deg) translateY(-46%) rotate(-${angle}deg)`,
-                  }}
-                >
-                  <motion.div
-                    animate={{ rotate: -360 }}
-                    transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-                    className="flex flex-col items-center gap-2"
-                  >
-                    <div className={`flex items-center gap-2 rounded-full border ${i % 2 === 0 ? "border-primary/40 bg-primary/10 text-primary" : "border-warm/40 bg-warm/10 text-warm"} px-3 py-1.5 font-mono text-[10px] backdrop-blur-md shadow-glow`}>
-                      <span className={`h-1.5 w-1.5 rounded-full ${i % 2 === 0 ? "bg-primary" : "bg-warm"} animate-pulse`} />
-                      {skill}
-                    </div>
-                  </motion.div>
-                </div>
-              );
-            })}
-          </motion.div>
+            <div className="absolute inset-[10%] rounded-full bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.24),hsl(var(--card)/0.16)_34%,transparent_72%)] blur-sm" />
+            <div className="absolute inset-[14%] rounded-full border border-primary/15 bg-background/10 backdrop-blur-sm" />
+            <div className="absolute inset-[24%] rounded-full border border-warm/15" />
+            <div className="absolute inset-[36%] rounded-full border border-primary/10" />
+            <div className="absolute left-1/2 top-[19%] h-[62%] w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-primary/20 to-transparent" />
+            <div className="absolute left-[19%] top-1/2 h-px w-[62%] -translate-y-1/2 bg-gradient-to-r from-transparent via-warm/20 to-transparent" />
 
-          {/* INNER orbit — counter-rotating skills */}
-          <motion.div
-            animate={{ rotate: -360 }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-0"
-          >
-            {innerSkills.map((skill, i) => {
-              const angle = (360 / innerSkills.length) * i;
-              return (
-                <div
-                  key={skill}
-                  className="absolute left-1/2 top-1/2"
-                  style={{
-                    transform: `rotate(${angle}deg) translateY(-160px) rotate(-${angle}deg)`,
-                  }}
-                >
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                    className="flex flex-col items-center"
-                  >
-                    <span className="whitespace-nowrap rounded-md bg-card/60 px-2 py-1 font-mono text-[10px] text-foreground/80 backdrop-blur">
-                      {skill}
-                    </span>
-                  </motion.div>
-                </div>
-              );
-            })}
-          </motion.div>
-
-          {/* Center portrait — kept perfectly centered; inner element does the float */}
-          <div className="pointer-events-none absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 md:h-56 md:w-56">
             <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="pointer-events-auto relative h-full w-full"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 46, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-[12%] rounded-full"
+              style={{
+                background:
+                  "conic-gradient(from 120deg, transparent 0 7%, hsl(var(--primary) / 0.85) 8% 10%, transparent 11% 35%, hsl(var(--accent-warm) / 0.8) 36% 38%, transparent 39% 68%, hsl(var(--primary) / 0.55) 69% 71%, transparent 72% 100%)",
+                mask: "radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px))",
+                WebkitMask:
+                  "radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px))",
+              }}
+            />
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{ duration: 62, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-[24%] rounded-full border border-dashed border-primary/25"
+            />
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-[38%] rounded-full border border-warm/20"
             >
-              <div className="absolute inset-0 animate-pulse-glow rounded-full bg-gradient-cyan opacity-40 blur-2xl" />
-              <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-primary/40 bg-card shadow-glow">
-                <img
-                  src={portrait}
-                  alt="Advaith G — AI Engineer"
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
-                <div className="pointer-events-none absolute inset-0 shimmer" />
-              </div>
-              <div className="absolute -left-3 -top-3 h-6 w-6 border-l-2 border-t-2 border-primary" />
-              <div className="absolute -right-3 -top-3 h-6 w-6 border-r-2 border-t-2 border-primary" />
-              <div className="absolute -bottom-3 -left-3 h-6 w-6 border-b-2 border-l-2 border-primary" />
-              <div className="absolute -bottom-3 -right-3 h-6 w-6 border-b-2 border-r-2 border-primary" />
+              <span className="absolute left-1/2 top-0 h-1.5 w-14 -translate-x-1/2 rounded-full bg-gradient-to-r from-transparent via-warm to-transparent" />
             </motion.div>
+
+            <div className="absolute left-[24%] top-[24%] h-8 w-8 border-l-2 border-t-2 border-primary/70" />
+            <div className="absolute right-[24%] top-[24%] h-8 w-8 border-r-2 border-t-2 border-primary/70" />
+            <div className="absolute bottom-[24%] left-[24%] h-8 w-8 border-b-2 border-l-2 border-warm/70" />
+            <div className="absolute bottom-[24%] right-[24%] h-8 w-8 border-b-2 border-r-2 border-warm/70" />
+
+            <div className="absolute inset-0 z-30">
+              {orbitSkills.map(({ label, Icon, accent }, i) => {
+                const angle = (360 / orbitSkills.length) * i - 90;
+                const radians = (angle * Math.PI) / 180;
+                const x = 50 + Math.cos(radians) * 44;
+                const y = 50 + Math.sin(radians) * 44;
+
+                return (
+                  <div
+                    key={label}
+                    className="absolute z-30 -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 ease-out hover:scale-105"
+                    style={{
+                      left: `${x}%`,
+                      top: `${y}%`,
+                    }}
+                  >
+                    <div
+                      className={`flex min-w-[var(--badge-size)] items-center justify-center gap-2 rounded-full border px-3 font-mono text-[11px] font-semibold shadow-2xl backdrop-blur-xl transition-transform duration-300 ease-out lg:min-w-[106px] ${
+                        accent === "warm"
+                          ? "border-warm/45 bg-warm/10 text-warm shadow-[0_18px_42px_-26px_hsl(var(--accent-warm))]"
+                          : "border-primary/45 bg-primary/10 text-primary shadow-[0_18px_42px_-26px_hsl(var(--primary))]"
+                      }`}
+                      style={{ minHeight: "var(--badge-height)" }}
+                    >
+                      <Icon className="h-4 w-4 shrink-0" />
+                      <span className="hidden whitespace-nowrap lg:inline">{label}</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div
+              className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2"
+              style={{ height: "var(--profile-size)", width: "var(--profile-size)" }}
+            >
+              <motion.div
+                animate={{ y: [0, -7, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                className="relative h-full w-full"
+              >
+                <div className="absolute -inset-8 rounded-full bg-gradient-cyan opacity-35 blur-3xl" />
+                <div className="absolute -inset-5 rounded-full border border-primary/20" />
+                <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-primary/45 via-transparent to-warm/45 p-px">
+                  <div className="h-full w-full rounded-full bg-background/80" />
+                </div>
+                <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-primary/45 bg-card shadow-[0_0_65px_hsl(var(--primary)/0.34)]">
+                  <img
+                    src={portrait}
+                    alt="Advaith G - AI Engineer"
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/45 via-transparent to-primary/10" />
+                  <div className="pointer-events-none absolute inset-0 shimmer" />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          <div className="relative mx-auto flex w-full max-w-[360px] flex-col items-center gap-4 sm:hidden">
+            <div className="relative aspect-square w-[min(68vw,260px)]">
+              <div className="absolute inset-0 rounded-full bg-gradient-cyan opacity-25 blur-3xl" />
+              <div className="absolute inset-3 rounded-full border border-primary/20 bg-background/10" />
+              <div className="absolute inset-8 rounded-full border border-warm/15" />
+              <div
+                className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2"
+                style={{ height: "var(--profile-size)", width: "var(--profile-size)", ...orbitStyle }}
+              >
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  className="relative h-full w-full overflow-hidden rounded-full border-2 border-primary/45 bg-card shadow-[0_0_48px_hsl(var(--primary)/0.32)]"
+                >
+                  <img
+                    src={portrait}
+                    alt="Advaith G - AI Engineer"
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/45 via-transparent to-primary/10" />
+                </motion.div>
+              </div>
+            </div>
+            <div className="flex w-full gap-2 overflow-x-auto pb-2">
+              {orbitSkills.map(({ label, Icon, accent }) => (
+                <div
+                  key={label}
+                  className={`flex shrink-0 items-center gap-2 rounded-full border px-3 py-2 font-mono text-[11px] font-semibold backdrop-blur-xl ${
+                    accent === "warm"
+                      ? "border-warm/45 bg-warm/10 text-warm"
+                      : "border-primary/45 bg-primary/10 text-primary"
+                  }`}
+                >
+                  <Icon className="h-4 w-4 shrink-0" />
+                  <span className="whitespace-nowrap">{label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
